@@ -1,23 +1,20 @@
 {
-  "name": "sintu",
+  "name": "remote-worker-survey",
   "version": "1.0.0",
   "description": "Remote Worker Survey Website",
   "main": "gulpfile.js",
+  "engines": {
+    "node": "7.0.0",
+    "npm": "4.0.3"
+  },
+  "start": "node server.js",
+  "install": "gulp",
   "dependencies": {
-    "gulp": "^3.9.1",
-    "browser-sync": "^2.17.6",
-    "autoprefixer": "^6.5.3",
-    "gulp-rename": "^1.2.2",
-    "gulp-clean-css": "^2.0.13",
-    "gulp-sass": "^2.3.2",
-    "gulp-sourcemaps": "^2.2.0",
-    "gulp-postcss": "^6.2.0",
-    "install": "^0.8.2",
-    "npm": "^3.10.9"
+    "express": "^4.14.0",
   },
   "devDependencies": {
     "autoprefixer": "^6.5.3",
-    "bower": "^1.8.0",
+    "bootstrap": "^4.0.0-alpha.5",
     "browser-sync": "^2.17.6",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.13",
@@ -31,13 +28,17 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/langhenet/remote-worker-survey.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/langhenet/remote-worker-survey/issues"
-  },
-  "homepage": "https://github.com/langhenet/remote-worker-survey#readme"
+      "type": "git",
+      "url": "git+https://github.com/ricricucit/remote-worker-survey.git"
+    },
+    "keywords": [
+      "remote workers",
+      "survey",
+    ],
+    "author": "Enrico Icardi - Enrico Cassinelli",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/ricricucit/remote-worker-survey/issues"
+    },
+    "homepage": "https://github.com/ricricucit/remote-worker-survey#readme"
 }

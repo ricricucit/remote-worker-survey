@@ -1,0 +1,43 @@
+//*==========================================================================*//
+//*                                                                          *//
+//*                   VARIABILI PER IL LAYOUT
+//*              descrizione - descrizione - descrizione
+//*                                                                          *//
+//*==========================================================================*//
+$enable-flex: true;
+
+$width: 1170px;
+$website-width: em($width); //TODO
+
+$gutter-small: $line-height;
+$gutter: $line-height * 2;
+$gutter-large: $line-height * 5;
+$gutter-huge: $line-height * 8;
+
+
+
+$height-small: $line-height;
+$height: $line-height * 2;
+$height-large: $line-height * 5;
+$height-huge: $line-height * 8;
+
+$grid-gutter-width-base: $gutter-small;
+
+//***********************************************************************//
+//             LARGHEZZA LAYOUT & BREAKPOINT MEDIA QUERIES
+//***********************************************************************//
+$uxl: 1980px;
+$xl: 1200px;
+$lg: 990px;
+$md: 768px;
+$sm: 568px;
+$xs: 479px;
+
+
+$divi-u-hd: 1462px; //min
+$divi-large-desktop: 1405px; //max
+$divi-small-desktop: 1100px; //max
+$divi-l-tablet: 980px; //max
+$divi-m-tablet: 782px;
+$divi-p-tablet: 767px; //***
+$divi-p-phone: 479px; //***

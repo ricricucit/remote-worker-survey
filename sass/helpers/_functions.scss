@@ -1,0 +1,166 @@
+//***************************************************************************//
+//*                                                                     *****//
+//*                  FUNZIONI
+//*              descrizione - descrizione - descrizione
+//*                                                                         *//
+//***************************************************************************//
+
+//****************************************************************************//
+//*                           FUNZIONI PER i FONT
+//*             Per il funzionamento della funzione vedere "FUNZIONI
+//*             PER I COLORI" in questa pagina
+//****************************************************************************//
+
+///
+// Font Size
+///
+@function size($size, $attr: 'fs') {
+    @return map-get(map-get($sizes, $size), $attr);
+}
+
+@function m-size($size, $attr: 'fs') {
+    @return map-get(map-get($mobile-sizes, $size), $attr);
+}
+
+
+///
+// Font Families & Weights
+///
+@function family($family, $attr: 'normal') {
+    @return map-get(map-get($families, $family), $attr);
+}
+
+///
+// Font decoration
+///
+@function decoration($size, $attr: 'fm') {
+    @return map-get(map-get($decorations, $size), $attr);
+}
+
+
+///
+// FORM Decoration
+///
+@function form($element, $attr: 'fm') {
+    @return map-get(map-get($forms, $element), $attr);
+}
+
+//****************************************************************************//
+//              PADDING & LINE HEIGHT per ELEMENTI SOTTOLINEATI
+//            qui c'è un trick complicato che va spiegato per bene
+//
+//  PROBLEMA: gli elementi sottolineati devono avere un padding o una Line
+//  Height che non rispetta
+//  la griglia, perché devono tenere conto del bordo
+//
+//  Per ogni grandezza io devo quindi sottrarre l'altezza del bordo (dichiarata)
+//  in PX) all'altezza di griglia - che è invece dichiarata in EM).
+//
+//        PASSO #1 - TROVARE IL VALORE IN PX DEL PADDING RIDOTTO
+//        PAD è il valore in PX che risulta da
+//        [LH - (bordo * 2)]
+//        quindi altezza di linea (PX) meno il bordo sopra più quello sotto
+//
+//        PASSO #2 - CONVERTIRE il PAD da PX a EM
+//        la proporzione è la seguente:
+//        1(EM) : fs(PX) = X(em) : PAD(PX)
+//        dove X è il valore in EM del padding volglio ottenere
+//
+//  Nelle funzioni sottostanti viene prima calcolato il PAD in pixel che viene
+//  poi diviso dal FS in pixel (anchesso calcolato).
+//
+//  FUNZIONE #1
+//  la LH in PX ($base * $bp-fs * ($bp-lh / 1em))
+//  a cui viene sottratto il bordo doppio:  - $bp-bw *2
+//  il tutto viene diviso per la FS calcolata con ($base * $bp-fs)
+//  e ulteriormente diviso per due (padding sotto + padding sopra)
+//
+//****************************************************************************//
+
+
+///
+// FULL PADDING
+// da usare SOPRA e SOTTO - oppure SOPRA o SOTTO con in più una mezza
+// interlinea dall'altro lato
+///
+@function bpad($bp-bw: 1, $bp-fs: p) {
+  @return ($base * $font-size * (size($bp-fs, fs) / 1em) * (size($bp-fs, lh) / 1em) - $bp-bw * 2) / ($base * $font-size * (size($bp-fs, fs) / 1em)) * 0.5em;
+}
+
+
+///
+// Mezzo padding
+///
+@function bhpad($bp-bw: 1, $bp-fs: p) {
+  @return (($base * $font-size * (size($bp-fs, fs) / 1em) * (size($bp-fs, lh) / 1em) / 2) - ($bp-bw * 2)) / ($base * $font-size * (size($bp-fs, fs) / 1em)) * 0.5em;
+}
+
+////
+// Quarter padding - **Importante** Il quarter padding va sempre compensato con
+// del margine a metà o a un quarto
+////
+
+@function bqpad($bp-bw: 1, $bp-fs: p) {
+  @return (($base * $font-size * (size($bp-fs, fs) / 1em) * (size($bp-fs, lh) / 1em) / 4) - ($bp-bw * 2)) / ($base * $font-size * (size($bp-fs, fs) / 1em)) * 0.5em;
+}
+
+////
+// SINGLE PADDING
+// da usare quando c'è un bordo singolo
+// e si vuole ottenere un altezza di linea intera
+////
+@function bspad($bp-bw: 1, $bp-fs: p) {
+  @return ($base * $font-size * (size($bp-fs, fs) / 1em) * (size($bp-fs, lh) / 1em) - $bp-bw) / ($base * $font-size * (size($bp-fs, fs) / 1em)) * 1em;
+}
+
+
+
+////
+// Border Line Height - questa funzione fà le stesse cose delle precedenti ma
+// calcolate per essere usate nella line-height. **ATTENZIONE** gli elementi
+// che usano questa funzione NON possono andare a capo
+////
+@function blh($bp-bw: 1, $bp-fs: p, $bp-lh: $line-height) {
+  @return (($base * $font-size * (size($bp-fs, fs) / 1em) * (size($bp-fs, lh) / 1em)) - ($bp-bw * 2)) / ($base * $font-size * (size($bp-fs, fs) / 1em)) * 1em;
+}
+
+
+//****************************************************************************//
+//*                   FUNZIONI PER I COLORI
+//****************************************************************************//
+
+////
+//  Questa funzione incatena 2 map-get sulla map $colors
+//
+//    il primo (più interno) dice: nella mappa $colors
+//    cerca la key $palette (che deve essere specificata)
+//
+//    Il map-get più esterno invece utilizza la key tirata fuori predentemente //    (quindi la "palette" - p.es "socket") per abbinargli un sotto valore
+//    nestato al suo interno.
+//
+//  ESEMPI DI UTILIZZO:
+//    background: palette(header, bg);
+//    restituisce il valore salvato nella key: header / sotto-key: bg
+///
+@function palette($palette, $element: 'body') {
+    @return map-get(map-get($colors, $palette), $element);
+}
+
+@function main-colors($palette, $element: 'body') {
+    @return map-get(map-get($layout-colors, $palette), $element);
+}
+
+//****************************************************************************//
+//*                   PX to EM
+//****************************************************************************//
+@function em($value: $base * 1px) {
+  @return ($value / 1px) / ($font-size * $base / 1em) * 1em
+}
+
+//****************************************************************************//
+//*                  EM BP
+//****************************************************************************//
+
+@function em-bp($value: $base * 1px) {
+  @return ($value / 1px) / ($base) * 1em
+}

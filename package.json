@@ -3,21 +3,10 @@
   "version": "1.0.0",
   "description": "Remote Worker Survey Website",
   "main": "gulpfile.js",
-  "dependencies": {
-    "gulp": "^3.9.1",
-    "browser-sync": "^2.17.6",
-    "autoprefixer": "^6.5.3",
-    "gulp-rename": "^1.2.2",
-    "gulp-clean-css": "^2.0.13",
-    "gulp-sass": "^2.3.2",
-    "gulp-sourcemaps": "^2.2.0",
-    "gulp-postcss": "^6.2.0",
-    "install": "^0.8.2",
-    "npm": "^3.10.9"
-  },
+  "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^6.5.3",
-    "bower": "^1.8.0",
+    "bootstrap": "^4.0.0-alpha.5",
     "browser-sync": "^2.17.6",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.13",

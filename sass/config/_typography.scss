@@ -10,21 +10,21 @@
 ///
   $base: 16;
   $font-size: 1em; //TODO
-  $line-height: 1.5em; //TODO
+  $line-height: 1.625em; //TODO
 
 
 ///
 // p and other standard elements
 ///
   $margin-top: 0em; //TODO
-  $margin-bottom: 1.5em; //TODO
+  $margin-bottom: 1.625em; //TODO
 
 
 ///
 // Families
 ///
   $serif: 'PT Serif', serif; //TODO
-  $sans: 'Open Sans', sans-serif; //TODO
+  $sans: 'Lato', sans-serif; //TODO
   $special: $serif; //TODO
   $ff-button: $sans;
 
@@ -35,10 +35,10 @@
 $families: (
   serif: (
     fm: $serif,
-    thin: 200,
+    thin: 400,
     normal: 400,
-    bold: 600,
-    bolder: 600,
+    bold: 700,
+    bolder: 700,
   ),
 
   sans: (
@@ -46,15 +46,15 @@ $families: (
     thin: 300,
     normal: 400,
     bold: 700,
-    bolder: 900,
+    bolder: 700,
   ),
 
   special: (
     fm: $special,
-    thin: 300,
+    thin: 400,
     normal: 400,
-    bold: 400,
-    bolder: 400,
+    bold: 700,
+    bolder: 700,
   ),
 );
 
@@ -66,17 +66,17 @@ $decorations: (
 
   h1: (
     fm: sans,
-    wt: bold
+    wt: thin
   ),
 
   h2: (
     fm: sans,
-    wt: bold,
+    wt: thin,
   ),
 
   h3: (
     fm: sans,
-    wt: bold,
+    wt: thin,
   ),
 
   h4: (
@@ -106,45 +106,45 @@ $decorations: (
     ),
 
     h1: (
-      fs: 3.375em,
-      lh: 1.33333333333em,
-      mt: 0.888888888888889em,
-      mb: 0.44444444444444em,
+      fs: 4.625em,
+      lh: 1.05405405em,
+      mt: 0.35135135em,
+      mb: 0.7027027em,
     ),
 
     h2: (
-      fs: 2.25em,
-      lh: 1.33333333333em,
-      mt: 1.33333333333em,
-      mb: 0.6666666666667em,
+      fs: 2.75em,
+      lh: 1.18181818em,
+      mt: 0.59090909em,
+      mb: 0.59090909em,
     ),
 
     h3: (
-      fs: 1.5em,
-      lh: 2em,
-      mt: 1.5em,
-      mb: 0.5em,
+      fs: 1.625em,
+      lh: 1em,
+      mt: 1em,
+      mb: 1em,
     ),
 
     h4: (
       fs: 1em,
-      lh: 1.5em,
-      mt: 1.5em,
-      mb: 1.5em,
+      lh: 1.625em,
+      mt: 1.625em,
+      mb: 1.625em,
     ),
 
     h5: (
       fs: 0.75em,
-      lh: 2em,
-      mt: 2em,
-      mb: 0em,
+      lh: 2.166666666667em,
+      mt: 2.166666666667em,
+      mb: 2.166666666667em,
     ),
 
     small: (
       fs: 0.75em,
-      lh: 2em,
-      mt: 2em,
-      mb: 0,
+      lh: 2.166666666667em,
+      mt: 2.166666666667em,
+      mb: 2.166666666667em,
     ),
 );
 

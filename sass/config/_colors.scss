@@ -15,71 +15,31 @@
 ///
 
 $null: transparent;
-$bianco: #fff;
-$nero: #212121;
-$nero-vero: #000;
-$nero-chiaro: #666;
-$grigio: mix($nero, $bianco, 20%);
-$facebook: #3a5795;
-$twitter: #0084b4;
-
-
-$rosso: #ce484f;
-$fiesta: #dc6f65;
-$fiesta-washed: #e09b90;
-$ross-2: #F44336;
-$orange: #FF8F00;
-$verde: #4CAF50;
-$verde-2: #43A047;
-$marrone: #795548;
-$marrone-2: #8D6E63;
-
-$viola: #9C27B0;
-$indigo: #3F51B5;
-
-$teal: #009688;
-
-
-
-$travel: $verde;
-$sleep: $indigo;
-$food: $teal;
-$wine: $viola;
+$purple: #52489C;
+$red: #E63946;
+$pink: #F56B7C;
+$white: #fff;
+$black: #000;
+$gray: mix($black, $white, 75%);
 
 
 /*
  * Colori delle parti principali del sito
  */
 $layout-colors: (
-  topbar: (
-    body: null,
-    link: null,
-    accent: null,
-    border: null,
-    bg: null,
-    button-bg: $null,
-    button: null,
-    ),
+  body: (
+    body:       $purple,      //Corpo - testo
+    body-sec:   $gray,      //Secondario - blockquote o blog meta
+    heading:    $purple,      //Titoli 1 e 2
+    link:       $purple,      //Link
+    bg:         $white,      //Sfondo principale
+    border:     $red,      //Bordi
 
-  header: (
-    body: $bianco,
-    link: $null,
-    accent: $null,
-    border: $null,
-    bg: $indigo,
-    button-bg: $null,
-    button: null,
-    ),
+    accent:     $red,      //Accento - sfondo lista icone / grassetti / icone
 
-  fheader: (
-    body: $null,
-    link: $null,
-    accent: $null,
-    border: $null,
-    bg: $null,
-    button-bg: $null,
-    button: $null,
-    ),
+    button:     $white,      //colore bottone
+    button-bg:  $purple,
+  ),
 
   footer: (
     body: $null,
@@ -89,17 +49,7 @@ $layout-colors: (
     bg: $null,
     button-bg: $null,
     button: $null,
-    ),
-
-  sidebar: (
-    body: $null,
-    link: $null,
-    accent: $null,
-    border: $null,
-    bg: $null,
-    button-bg: $null,
-    button: $null,
-    ),
+  ),
 );
 
 
@@ -108,182 +58,35 @@ $layout-colors: (
    * Colori delle Sezioni FW
    */
 $colors: (
-  main: (
-    body:       $nero,      //Corpo - testo
-    body-sec:   $null,      //Secondario - blockquote o blog meta
-    heading:    rgba($nero, 0.68),      //Titoli 1 e 2
-    link:       $null,      //Link
-    bg:         $bianco,      //Sfondo principale
-    border:     $null,      //Bordi
+  purple: (
+    body:       $white,      //Corpo - testo
+    body-sec:   mix($purple, $white, 10%),      //Secondario - blockquote o blog meta
+    heading:    $white,      //Titoli 1 e 2
+    link:       $white,      //Link
+    bg:         $purple,      //Sfondo principale
+    washed:     mix($purple, $white, 80%),
+    light:      mix($purple, $white, 2%),
+    border:     $white,      //Bordi
 
-    accent:     $null,      //Accento - sfondo lista icone / grassetti / icone
+    accent:     $white,      //Accento - sfondo lista icone / grassetti / icone
 
-    body-alt:   $null,      //body alternativo - testo in un form o in un box
-    bg-alt:     $null,      //sfondo alt - il bg di un form o di un box
-    accent-alt: $null,      //accento alt - il di un link nel form
-
-    form-body: $null,
-    form-bg: $null,
-    form-link: $null,
-    form-desc: $null,
-
-    overlay:    $nero-vero,      //Colore sfondo overlay
-
-    button:     $bianco,      //colore bottone
-    button-bg:  $verde,
-
-    button-subtle: $null,
-    button-bg-subtle: mix($verde, white, 50%)    //bg bottone
+    button:     $white,      //colore bottone
+    button-bg:  $red,
   ),
+  red: (
+    body:       $white,      //Corpo - testo
+    body-sec:   mix($red, $white, 10%),      //Secondario - blockquote o blog meta
+    heading:    $white,      //Titoli 1 e 2
+    link:       $white,      //Link
+    bg:         $red,      //Sfondo principale
+    washed:     mix($red, $white, 80%),
+    light:      mix($red, $white, 2%),
+    border:     $white,      //Bordi
 
-  alternate: (
-    body:       $bianco,      //Corpo - testo
-    body-sec:   $bianco,      //Secondario - blockquote o blog meta
-    heading:    $bianco,      //Titoli 1 e 2
-    link:       $bianco,      //Link
-    bg:         $nero-chiaro,      //Sfondo principale
-    washed:     mix($nero-chiaro, $bianco, 80%),
-    light:      mix($nero-chiaro, $bianco, 8%),
-    border:     $null,      //Bordi
+    accent:     $white,      //Accento - sfondo lista icone / grassetti / icone
 
-    accent:     $null,      //Accento - sfondo lista icone / grassetti / icone
-
-    body-alt:   $null,      //body alternativo - testo in un form o in un box
-    bg-alt:     $null,      //sfondo alt - il bg di un form o di un box
-    accent-alt: $null,      //accento alt - il di un link nel form
-
-    form-body: $null,
-    form-bg: $null,
-    form-link: $null,
-    form-desc: $null,
-
-    overlay:    $nero-vero,      //Colore sfondo overlay
-
-    button:     $bianco,      //colore bottone
-    button-bg:  $verde,
-
-    button-subtle: $null,
-    button-bg-subtle: mix($verde, white, 50%)    //bg bottone
-  ),
-
-  food: (
-    body:       $bianco,      //Corpo - testo
-    body-sec:   $null,      //Secondario - blockquote o blog meta
-    heading:    $bianco,      //Titoli 1 e 2
-    link:       $bianco,      //Link
-    bg:         $food,      //Sfondo principale
-    washed:     mix($food, $bianco, 80%),
-    light:      mix($food, $bianco, 10%),
-    border:     $null,      //Bordi
-
-    accent:     $bianco,      //Accento - sfondo lista icone / grassetti / icone
-
-    body-alt:   $null,      //body alternativo - testo in un form o in un box
-    bg-alt:     $null,      //sfondo alt - il bg di un form o di un box
-    accent-alt: $null,      //accento alt - il di un link nel form
-
-    form-body: $null,
-    form-bg: $null,
-    form-link: $null,
-    form-desc: $null,
-
-    overlay:    $nero-vero,      //Colore sfondo overlay
-
-    button:     $bianco,      //colore bottone
-    button-bg:  $verde,
-
-    button-subtle: $null,
-    button-bg-subtle: mix($verde, white, 50%)    //bg bottone
-  ),
-
-  sleep: (
-    body:       $bianco,      //Corpo - testo
-    body-sec:   $null,      //Secondario - blockquote o blog meta
-    heading:    $bianco,      //Titoli 1 e 2
-    link:       $bianco,      //Link
-    bg:         $sleep,      //Sfondo principale
-    washed:     mix($sleep, $bianco, 80%),
-    light:      mix($sleep, $bianco, 10%),
-    border:     $null,      //Bordi
-
-    accent:     $bianco,      //Accento - sfondo lista icone / grassetti / icone
-
-    body-alt:   $null,      //body alternativo - testo in un form o in un box
-    bg-alt:     $null,      //sfondo alt - il bg di un form o di un box
-    accent-alt: $null,      //accento alt - il di un link nel form
-
-    form-body: $null,
-    form-bg: $null,
-    form-link: $null,
-    form-desc: $null,
-
-    overlay:    $nero-vero,      //Colore sfondo overlay
-
-    button:     $bianco,      //colore bottone
-    button-bg:  $verde,
-
-    button-subtle: $null,
-    button-bg-subtle: mix($verde, white, 50%)    //bg bottone
-  ),
-
-  travel: (
-    body:       $bianco,      //Corpo - testo
-    body-sec:   $null,      //Secondario - blockquote o blog meta
-    heading:    $bianco,      //Titoli 1 e 2
-    link:       $bianco,      //Link
-    bg:         $travel,      //Sfondo principale
-    washed:     mix($travel, $bianco, 80%),
-    light:      mix($travel, $bianco, 10%),
-    border:     $bianco,      //Bordi
-
-    accent:     $bianco,      //Accento - sfondo lista icone / grassetti / icone
-
-    body-alt:   $null,      //body alternativo - testo in un form o in un box
-    bg-alt:     $null,      //sfondo alt - il bg di un form o di un box
-    accent-alt: $null,      //accento alt - il di un link nel form
-
-    form-body: $null,
-    form-bg: $null,
-    form-link: $null,
-    form-desc: $null,
-
-    overlay:    $nero-vero,      //Colore sfondo overlay
-
-    button:     $bianco,      //colore bottone
-    button-bg:  $verde,
-
-    button-subtle: $null,
-    button-bg-subtle: mix($verde, white, 50%)    //bg bottone
-  ),
-
-  wine: (
-    body:       $bianco,      //Corpo - testo
-    body-sec:   $null,      //Secondario - blockquote o blog meta
-    heading:    $bianco,      //Titoli 1 e 2
-    link:       $bianco,      //Link
-    bg:         $wine,      //Sfondo principale
-    washed:     mix($wine, $bianco, 80%),
-    light:      mix($wine, $bianco, 10%),
-    border:     $null,      //Bordi
-
-    accent:     $bianco,      //Accento - sfondo lista icone / grassetti / icone
-
-    body-alt:   $null,      //body alternativo - testo in un form o in un box
-    bg-alt:     $null,      //sfondo alt - il bg di un form o di un box
-    accent-alt: $null,      //accento alt - il di un link nel form
-
-    form-body: $null,
-    form-bg: $null,
-    form-link: $null,
-    form-desc: $null,
-
-    overlay:    $nero-vero,      //Colore sfondo overlay
-
-    button:     $bianco,      //colore bottone
-    button-bg:  $verde,
-
-    button-subtle: $null,
-    button-bg-subtle: mix($verde, white, 50%)    //bg bottone
+    button:     $white,      //colore bottone
+    button-bg:  $purple,
   ),
 );
 

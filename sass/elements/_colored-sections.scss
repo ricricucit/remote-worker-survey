@@ -1,0 +1,32 @@
+@each $palette, $sections in $colors {
+  .color-#{$palette} {
+    background-color: palette($palette, bg);
+
+    * {
+      color: palette($palette, body);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: palette($palette, heading);
+    }
+
+    li {
+      color: palette($palette, body);
+    }
+
+    strong {
+      color: palette($palette, heading);
+      line-height: 0;
+    }
+
+    &.washed {
+      background-color: palette($palette, washed);
+    }
+  }
+}
+
+@each $palette, $sections in $colors {
+  .color-#{$palette}--light {
+    background-color: palette($palette, light);
+  }
+}

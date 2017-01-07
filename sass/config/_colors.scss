@@ -1,17 +1,10 @@
 //****************************************************************************//
-//                                 COLORI
-//              In questa sezione vengono configurati i colori
-//            nella prima parte si utilizzano dei colori "veri" che
-//            vengono setuppati in delle variabili dai nomi leggibili
+//                                 COLORS
 //
-//              Nella seconda parte le variabili vengono associate
-//            ai valori della mappa $colors che utilizza invece nomi
-//            legati alle funzioni svolte dal colore.
 //****************************************************************************//
 
 ///
-// SEZIONI COLORI - //TODO
-// Usare qui le variabili semantiche segnate sopra
+// Color Variables
 ///
 
 $null: transparent;
@@ -24,21 +17,21 @@ $gray: mix($black, $white, 75%);
 
 
 /*
- * Colori delle parti principali del sito
+ * Main colors map
  */
 $layout-colors: (
   body: (
-    body:       $purple,      //Corpo - testo
-    body-sec:   $gray,      //Secondario - blockquote o blog meta
-    heading:    $purple,      //Titoli 1 e 2
-    link:       $purple,      //Link
-    bg:         $white,      //Sfondo principale
-    border:     $red,      //Bordi
+    body:       $purple,      //body color
+    body-sec:   $gray,      //secondary body color
+    heading:    $purple,      //Titles color
+    link:       $purple,      //Link Color
+    bg:         $white,      //Main background color
+    border:     $red,      //Border Color
 
-    accent:     $red,      //Accento - sfondo lista icone / grassetti / icone
+    accent:     $red,      //Accent Color
 
-    button:     $white,      //colore bottone
-    button-bg:  $purple,
+    button:     $white,      //Button color
+    button-bg:  $purple,    //Button background color
   ),
 
   footer: (
@@ -55,45 +48,43 @@ $layout-colors: (
 
 
   /*
-   * Colori delle Sezioni FW
+   * Palette Color Map
    */
 $colors: (
   purple: (
-    body:       $white,      //Corpo - testo
-    body-sec:   mix($purple, $white, 10%),      //Secondario - blockquote o blog meta
-    heading:    $white,      //Titoli 1 e 2
-    link:       $white,      //Link
-    bg:         $purple,      //Sfondo principale
+    body:       $white,      //body color
+    body-sec:   mix($purple, $white, 10%),      //secondary body color
+    heading:    $white,      //Titles color
+    link:       $white,      //Link Color
+    bg:         $purple,      //Main background color
     washed:     mix($purple, $white, 80%),
     light:      mix($purple, $white, 2%),
-    border:     $white,      //Bordi
+    border:     $white,      //Border Color
 
-    accent:     $white,      //Accento - sfondo lista icone / grassetti / icone
+    accent:     $white,      //Accent Color
 
-    button:     $white,      //colore bottone
-    button-bg:  $red,
+    button:     $white,      //Button color
+    button-bg:  $red,    //Button background color
   ),
   red: (
-    body:       $white,      //Corpo - testo
-    body-sec:   mix($red, $white, 10%),      //Secondario - blockquote o blog meta
-    heading:    $white,      //Titoli 1 e 2
-    link:       $white,      //Link
-    bg:         $red,      //Sfondo principale
+    body:       $white,      //body color
+    body-sec:   mix($red, $white, 10%),      //secondary body color
+    heading:    $white,      //Titles color
+    link:       $white,      //Link Color
+    bg:         $red,      //Main background color
     washed:     mix($red, $white, 80%),
     light:      mix($red, $white, 2%),
-    border:     $white,      //Bordi
+    border:     $white,      //Border Color
 
-    accent:     $white,      //Accento - sfondo lista icone / grassetti / icone
+    accent:     $white,      //Accent Color
 
-    button:     $white,      //colore bottone
-    button-bg:  $purple,
+    button:     $white,      //Button color
+    button-bg:  $purple,    //Button background color
   ),
 );
 
-//****************************************************************************//                         //                                 BOTTONI
-//****************************************************************************//
 
 ///
-// Ombra
+// Button Shadow
 ///
 $button-shadow: 0 0.07em 0.085em 0 rgba(0, 0, 0, 0.26);

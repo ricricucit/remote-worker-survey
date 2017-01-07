@@ -80,7 +80,7 @@
   }
 
   //Family
-  @if $fm == serif or $fm == sans or $fm == special {
+  @if $fm == primary or $fm == secondary or $fm == special {
     font-family: family($fm, fm);
   }
   @else {
@@ -89,7 +89,7 @@
 
   //WEIGHT
   @if $wt == bolder or $wt == bold or $wt == normal or $wt == light {
-    @if $fm == serif or $fm == sans or $fm == special {
+    @if $fm == primary or $fm == secondary or $fm == special {
       font-weight: family($fm, $wt);
     }
     @else { // DOVREI ANDARE A PESCARE LA FAMIGLIA DELLA GRANDEZZA RICHIAMATA e POTERLA METTERE QUI - FORSE CI VUOLE UN ALTRA FUNZIONE CHE FACCIA UN MERGE?!?
@@ -98,7 +98,7 @@
   }
 
   @else {
-    @if $fm == serif or $fm == sans or $fm == special {
+    @if $fm == primary or $fm == secondary or $fm == special {
       font-weight: family($fm, decoration($size, wt));
     }
     @else {

@@ -5,6 +5,14 @@
 
 .site__container {
   padding: $height-large 0;
+
+  @include breakpoint-max(md) {
+    padding-top: 0;
+  }
+}
+
+section {
+  padding: $line-height 0;
 }
 
 .inner {
@@ -14,11 +22,23 @@
 
 .inner__row {
   @include  make-row();
+
+  padding: 0 $line-height;
 }
 .inner__row--center {
   @include make-row();
 
+  padding: 0 $line-height;
   align-items: center;
+}
+
+.column--1-4 {
+  @include make-col-ready();
+  @include make-col(3);
+
+  padding-top: $line-height;
+  padding-bottom: $line-height;
+  box-sizing: border-box;
 }
 
 .column--1-3 {
@@ -33,6 +53,10 @@
 .column--1-2 {
   @include make-col-ready();
   @include make-col(6);
+
+  @include breakpoint-max(md) {
+    @include make-col(12);
+  }
 
   padding-top: $line-height;
   padding-bottom: $line-height;

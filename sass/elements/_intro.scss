@@ -14,10 +14,12 @@
 .title {
   text-align: center;
   color: palette(red, heading);
+  z-index: 1;
+  position: relative;
 }
 
 .cta__container {
-  padding: $height 0 $height-large 0;
+  padding: $height 0 $height 0;
 }
 
 .cta--sponsor {
@@ -33,6 +35,8 @@
   width: $line-height * 5;
   box-shadow: $button-shadow-rounded;
   border-radius: 100%;
+  position: relative;
+  z-index: 1;
 
   a {
     display: block;
@@ -41,15 +45,36 @@
   }
 }
 
-#cone {
+.title::before {
 width: 0;
 height: 0;
-border-left: 70px solid transparent;
-border-right: 70px solid transparent;
-border-top: 100px solid red;
--moz-border-radius: 50%;
--webkit-border-radius: 50%;
-border-radius: 50%;
+border-top: 16em solid transparent;
+border-bottom: 16em solid transparent;
+border-right: 16em solid palette(red, bg);
+//-moz-border-radius: 50%;
+//-webkit-border-radius: 50%;
+border-radius: 100%;
+content: "";
+display: inline-block;
+position: absolute;
+//outline: 5px solid blue;
+z-index: -1;
+top: -455%;
+right: -200%;
+}
 
-//outline: 5px solid red;
+.title::after {
+  width: 0;
+  height: 0;
+  border-top: 18em solid transparent;
+  border-bottom: 18em solid transparent;
+  border-right: 18em solid palette(purple, bg);
+  border-radius: 100%;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  //outline: 5px solid blue;
+  z-index: -2;
+  top: -506%;
+  right: -250%;
 }

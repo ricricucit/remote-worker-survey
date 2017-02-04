@@ -48,6 +48,11 @@ h3 {
 
 .h3 {
   @include font(h3);
+
+  @include breakpoint-max(sm) {
+    @include m-size(h3);
+  }
+
   font-weight: inherit;
 }
 
@@ -90,6 +95,10 @@ ul, ol {
   max-width: 400px;
   margin-left: auto;
   margin-right: auto;
+
+  @include breakpoint-max(sm) {
+    @include m-size(h2);
+  }
 }
 
 .section__title::before,
@@ -101,6 +110,10 @@ ul, ol {
   top: 1.25em;
   //max-width: 550px;
   width: 150%;
+
+  @include breakpoint-max(sm) {
+    top: 1.65em;
+  }
 }
 
 .section__title::before {

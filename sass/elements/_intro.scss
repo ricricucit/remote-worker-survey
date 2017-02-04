@@ -1,0 +1,55 @@
+///
+// Preheader Date
+///
+.date {
+  @include font(h3, $wt: normal);
+
+  //text-align: right;
+}
+
+.title__container {
+  padding: $height 0;
+}
+
+.title {
+  text-align: center;
+  color: palette(red, heading);
+}
+
+.cta__container {
+  padding: $height 0 $height-large 0;
+}
+
+.cta--sponsor {
+  @include font(p, $fm: secondary);
+  color: main-colors(body, accent);
+
+}
+
+.cta--take-survey {
+  text-align: center;
+  float: right;
+  height: $line-height * 5;
+  width: $line-height * 5;
+  box-shadow: $button-shadow-rounded;
+  border-radius: 100%;
+
+  a {
+    display: block;
+    text-decoration: none;
+    padding-top: $line-height * 1.5;
+  }
+}
+
+#cone {
+width: 0;
+height: 0;
+border-left: 70px solid transparent;
+border-right: 70px solid transparent;
+border-top: 100px solid red;
+-moz-border-radius: 50%;
+-webkit-border-radius: 50%;
+border-radius: 50%;
+
+//outline: 5px solid red;
+}

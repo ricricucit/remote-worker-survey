@@ -46,6 +46,11 @@ h3 {
   }
 }
 
+.h3 {
+  @include font(h3);
+  font-weight: inherit;
+}
+
 h4 {
   @include font(h4);
   color: main-colors(body, heading);
@@ -54,11 +59,10 @@ h4 {
 p {
   @include font(p);
   color: main-colors(body, body);
+}
 
-  strong {
-    color: main-colors(body, heading);
-    line-height: 0;
-  }
+.accent {
+  color: main-colors(body, accent)
 }
 
 p, h1, h2, h3, h4, h5, ol, ul, blockquote {
@@ -75,6 +79,37 @@ ul, ol {
   @include size(p);
   @include margin(p);
   color: main-colors(body, body);
+}
+
+
+.section__title {
+  @include font(h2);
+
+  text-transform: uppercase;
+  text-align: center;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section__title::before,
+.section__title::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  border-bottom: 1px dashed main-colors(body, border);
+  top: 1.25em;
+  //max-width: 550px;
+  width: 150%;
+}
+
+.section__title::before {
+  right: 70%;
+  margin-right: 15px;
+}
+.section__title::after {
+  left: 70%;
+  margin-left: 15px;
 }
 
 

@@ -1,101 +1,110 @@
 //*==========================================================================*//
 //*                                                                          *//
-//*                   VARIABILI PER    TIPOGRAFIA
-//*                          DIMENSIONI & FACE
+//*                   TYPOGRAPHY VARIABLES
 //*                                                                          *//
 //*==========================================================================*//
 
 ///
-// BASE DEL BODY
+// Base body
 ///
   $base: 16;
   $font-size: 1em; //TODO
-  $line-height: 1.5em; //TODO
+  $line-height: 1.625em; //TODO
 
 
 ///
 // p and other standard elements
 ///
   $margin-top: 0em; //TODO
-  $margin-bottom: 1.5em; //TODO
+  $margin-bottom: 1.625em; //TODO
 
 
 ///
 // Families
 ///
-  $serif: 'PT Serif', serif; //TODO
-  $sans: 'Open Sans', sans-serif; //TODO
-  $special: $serif; //TODO
-  $ff-button: $sans;
+  $primary: 'PT Serif', serif; //TODO
+  $secondary: 'Lato', sans; //TODO
+  $special: $primary; //TODO
+  $ff-button: $secondary;
 
 
 ///
-// WEIGHTS per Families
+// WEIGHTS for  Families
 ///
 $families: (
-  serif: (
-    fm: $serif,
-    thin: 200,
+  primary: (
+    fm: $primary,
+    thin: 400,
     normal: 400,
-    bold: 600,
-    bolder: 600,
+    bold: 700,
+    bolder: 700,
   ),
 
-  sans: (
-    fm: $sans,
+  secondary: (
+    fm: $secondary,
     thin: 300,
     normal: 400,
     bold: 700,
-    bolder: 900,
+    bolder: 700,
   ),
 
   special: (
     fm: $special,
-    thin: 300,
+    thin: 400,
     normal: 400,
-    bold: 400,
-    bolder: 400,
+    bold: 700,
+    bolder: 700,
   ),
 );
 
+///
+// FONT DECORATION MAP
+// fm: font-family
+// wt: font-weight
+///
+
 $decorations: (
   p: (
-    fm: serif,
+    fm: primary,
     wt: normal,
   ),
 
   h1: (
-    fm: sans,
-    wt: bold
+    fm: secondary,
+    wt: thin
   ),
 
   h2: (
-    fm: sans,
-    wt: bold,
+    fm: secondary,
+    wt: thin,
   ),
 
   h3: (
-    fm: sans,
-    wt: bold,
+    fm: secondary,
+    wt: thin,
   ),
 
   h4: (
-    fm: sans,
+    fm: secondary,
     wt: normal,
   ),
 
   h5: (
-    fm: sans,
+    fm: secondary,
     wt: normal,
   ),
 
   small: (
-    fm: sans,
+    fm: secondary,
     wt: normal,
   ),
 );
 ////
-// Dimensioni & caratteristiche dei font principali
+// FONT SIZES
+// fs: font-size
+// lh: line-height
+// mt: margin-top
+// mb: margin-bottom
 ////
   $sizes: (
     p: (
@@ -106,73 +115,73 @@ $decorations: (
     ),
 
     h1: (
-      fs: 3.375em,
-      lh: 1.33333333333em,
-      mt: 0.888888888888889em,
-      mb: 0.44444444444444em,
+      fs: 4.625em,
+      lh: 1.05405405em,
+      mt: 0.35135135em,
+      mb: 0.7027027em,
     ),
 
     h2: (
-      fs: 2.25em,
-      lh: 1.33333333333em,
-      mt: 1.33333333333em,
-      mb: 0.6666666666667em,
+      fs: 2.75em,
+      lh: 1.18181818em,
+      mt: 0.59090909em,
+      mb: 0.59090909em,
     ),
 
     h3: (
-      fs: 1.5em,
-      lh: 2em,
-      mt: 1.5em,
-      mb: 0.5em,
+      fs: 1.625em,
+      lh: 1em,
+      mt: 1em,
+      mb: 1em,
     ),
 
     h4: (
       fs: 1em,
-      lh: 1.5em,
-      mt: 1.5em,
-      mb: 1.5em,
+      lh: 1.625em,
+      mt: 1.625em,
+      mb: 1.625em,
     ),
 
     h5: (
       fs: 0.75em,
-      lh: 2em,
-      mt: 2em,
-      mb: 0em,
+      lh: 2.166666666667em,
+      mt: 2.166666666667em,
+      mb: 2.166666666667em,
     ),
 
     small: (
       fs: 0.75em,
-      lh: 2em,
-      mt: 2em,
-      mb: 0,
+      lh: 2.166666666667em,
+      mt: 2.166666666667em,
+      mb: 2.166666666667em,
     ),
 );
 
 $mobile-sizes: (
   h1: (
-    fs: 1.953125em,
-    lh: 1.538461538461538em,
-    mt: 1.536em,
-    mb: 0.768em,
+    fs: 2.75em,
+    lh: 1.18181818em,
+    mt: 0.59090909em,
+    mb: 0.59090909em,
   ),
 
   h2: (
-    fs: 1.5625em,
-    lh: 1.935483870967742em,
-    mt: 0.96em,
-    mb: 0.96em,
+    fs: 1.9375em,
+    lh: 1.67741935em,
+    mt: 0.83870968em,
+    mb: 0.83870968em,
   ),
 
   h3: (
-    fs: 1.25em,
-    lh: 1.2em,
-    mt: 1.8em,
-    mb: 0.6em,
+    fs: 1.375em,
+    lh: 1.18181818em,
+    mt: 1.18181818em,
+    mb: 1.18181818em,
   ),
 );
 
 ////
-// DETTAGLI
+// Typography details
 ////
   $sup-top: -0.5em; //TODO
   $sub-bottom: -0.25em; //TODO
@@ -186,17 +195,17 @@ $mobile-sizes: (
 
 $forms: (
   field: (
-    fm: family(sans, fm),
-    wt: family(sans, normal),
+    fm: family(secondary, fm),
+    wt: family(secondary, normal),
   ),
 
   label: (
-    fm: family(sans, fm),
-    wt: family(sans, normal),
+    fm: family(secondary, fm),
+    wt: family(secondary, normal),
   ),
 
   desc: (
-    fm: family(sans, fm),
-    wt: family(sans, normal),
+    fm: family(secondary, fm),
+    wt: family(secondary, normal),
   ),
 );

@@ -1,12 +1,13 @@
 //*==========================================================================*//
 //*                                                                          *//
-//*                   VARIABILI PER IL LAYOUT
-//*              descrizione - descrizione - descrizione
+//*                   LAYOUT VARIABLES
 //*                                                                          *//
 //*==========================================================================*//
-$enable-flex: true;
 
-$width: 1170px;
+//***********************************************************************//
+//            BASE WIDTHS and HEIGHTS
+//***********************************************************************//
+$width: 960px;
 $website-width: em($width); //TODO
 
 $gutter-small: $line-height;
@@ -21,23 +22,34 @@ $height: $line-height * 2;
 $height-large: $line-height * 5;
 $height-huge: $line-height * 8;
 
-$grid-gutter-width-base: $gutter-small;
+//***********************************************************************//
+//            BOOTSTRAP CONFIG
+//***********************************************************************//
+
+///
+// Enable Bootstrap Flex
+///
+$enable-flex: true;
+
+///
+// Changes bootstrap gutter with our gutter
+///
+$grid-gutter-width-base: $gutter;
+
+$grid-gutter-widths: (
+  xs: $grid-gutter-width-base,
+  sm: $grid-gutter-width-base,
+  md: $grid-gutter-width-base,
+  lg: $grid-gutter-width-base,
+  xl: $grid-gutter-width-base
+);
 
 //***********************************************************************//
-//             LARGHEZZA LAYOUT & BREAKPOINT MEDIA QUERIES
+//             BREAKPOINT SETUP
 //***********************************************************************//
 $uxl: 1980px;
 $xl: 1200px;
-$lg: 990px;
+$lg: 992px;
 $md: 768px;
-$sm: 568px;
-$xs: 479px;
-
-
-$divi-u-hd: 1462px; //min
-$divi-large-desktop: 1405px; //max
-$divi-small-desktop: 1100px; //max
-$divi-l-tablet: 980px; //max
-$divi-m-tablet: 782px;
-$divi-p-tablet: 767px; //***
-$divi-p-phone: 479px; //***
+$sm: 576px;
+$xs: 480px;

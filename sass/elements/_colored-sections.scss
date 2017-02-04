@@ -1,0 +1,39 @@
+///
+// Loops through the color palettes to create the various background sections
+///
+@each $palette, $sections in $colors {
+  .#{$palette} {
+    background-color: palette($palette, bg);
+    color: palette($palette, body);
+
+    * {
+      color: palette($palette, body);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: palette($palette, heading);
+    }
+
+    li {
+      color: palette($palette, body);
+    }
+
+    strong {
+      color: palette($palette, heading);
+      line-height: 0;
+    }
+
+    &.washed {
+      background-color: palette($palette, washed);
+    }
+  }
+}
+
+///
+// Loops thtough all the palettes to create ligher background sections
+///
+@each $palette, $sections in $colors {
+  .color-#{$palette}--light {
+    background-color: palette($palette, light);
+  }
+}

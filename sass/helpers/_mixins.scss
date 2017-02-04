@@ -64,15 +64,15 @@
   @include size($size);
 
   //MARGIN TOP
-  @if $mt == 0 {
+  @if $mt != $size  {
     margin-top: $mt;
   }
   @else {
     margin-top: size($size, mt);
   }
 
-  //MARGIN TOP
-  @if $mb == 0 {
+  //MARGIN bottom
+  @if $mb != $size {
     margin-bottom: $mb;
   }
   @else {
@@ -80,7 +80,7 @@
   }
 
   //Family
-  @if $fm == serif or $fm == sans or $fm == special {
+  @if $fm == primary or $fm == secondary or $fm == special {
     font-family: family($fm, fm);
   }
   @else {
@@ -88,8 +88,8 @@
   }
 
   //WEIGHT
-  @if $wt == bolder or $wt == bold or $wt == normal or $wt == light {
-    @if $fm == serif or $fm == sans or $fm == special {
+  @if $wt == bolder or $wt == bold or $wt == normal or $wt == thin {
+    @if $fm == primary or $fm == secondary or $fm == special {
       font-weight: family($fm, $wt);
     }
     @else { // DOVREI ANDARE A PESCARE LA FAMIGLIA DELLA GRANDEZZA RICHIAMATA e POTERLA METTERE QUI - FORSE CI VUOLE UN ALTRA FUNZIONE CHE FACCIA UN MERGE?!?
@@ -98,7 +98,7 @@
   }
 
   @else {
-    @if $fm == serif or $fm == sans or $fm == special {
+    @if $fm == primary or $fm == secondary or $fm == special {
       font-weight: family($fm, decoration($size, wt));
     }
     @else {
@@ -139,8 +139,8 @@
 // Mixin per i bottoni con padding
 ///
 @mixin button($size: p, $bw:2, $pw: null) {
-  font-size: font($size, fs);
-  line-height: font($size, lh);
+  font-size: size($size, fs);
+  line-height: size($size, lh);
 
   @if $pw == half {
     padding-top: bhpad($bw, $size);
@@ -167,7 +167,7 @@
 @mixin button-lh($size: p, $bw:2) {
   @include size($size);
 
-  line-height: blh($bw, font($size, fs), font($size, lh));
+  line-height: blh($bw, size($size, fs), font($size, lh));
 
   padding: 0 1.5em;
   border-bottom-width: $bw * 1px;
@@ -190,9 +190,24 @@
 //  Nel caso specifico, verrà utilizzato un @each che looppa attraverso tutte
 //  le palette per costruire delle classi dinamiche basate sulle palette
 ///
-@mixin button-color($state:none, $palette:main) {
+@mixin button-color($state: none, $palette: main) {
 
-  @if $state != hover {
+  @if ($state != hover) and ($palette == main) {
+    background: main-colors($palette, button-bg);
+    color: main-colors($palette, button);
+    border-color: main-colors($palette, button-bg);
+    border-bottom-color: darken(main-colors($palette, button-bg), 10%);
+    opacity: 1;
+  }
+
+  @if ($state == hover) and ($palette == main) {
+    background: darken(main-colors($palette, button-bg), 5%);
+    color: main-colors($palette, button);
+    border-color: main-colors($palette, button-bg);
+    border-bottom-color: darken(main-colors($palette, button-bg), 10%);
+  }
+
+  @if $state != hover and $palette != main {
     background: palette($palette, button-bg);
     color: palette($palette, button);
     border-color: palette($palette, button-bg);
@@ -201,10 +216,10 @@
   }
 
   @else {
-    background: darken(palette($palette, button-bg), 5%);
-    color: palette($palette, button);
-    border-color: palette($palette, button-bg);
-    border-bottom-color: darken(palette($palette, button-bg), 10%);
+  //  background: darken(palette($palette, button-bg), 5%);
+  //  color: palette($palette, button);
+  //border-color: palette($palette, button-bg);
+  //border-bottom-color: darken(palette($palette, button-bg), 10%);
   }
 }
 
@@ -241,11 +256,11 @@
 ///
 @mixin form-field($size: p, $bw: 1) {
   font-family: inherit;
-  font-size: font($size, fs);
-  line-height: font($size, lh); //TOCR - forse è più facile farla con la funzione blh?
-//  margin-bottom: font($size, mb);
+  font-size: size($size, fs);
+  line-height: size($size, lh); //TOCR - forse è più facile farla con la funzione blh?
+//  margin-bottom: size($size, mb);
   margin-top: 0;
-  padding: bhpad($bw, $size) !important;
+  padding: 0 ($line-height / 4) !important;
   border-width: $bw * 1px;
 }
 
@@ -253,8 +268,8 @@
 // Forms Labels size settings
 ///
 @mixin form-label($size: p) {
-  font-size: font($size, fs);
-  line-height: font($size, lh) !important;
+  font-size: size($size, fs);
+  line-height: size($size, lh) !important;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   padding-top: 0;
@@ -268,15 +283,15 @@
 // Forms Field Descritpions
 ///
 @mixin form-desc($size: h5) {
-  font-size: font($size, fs) !important;
-  line-height: font($size, lh);
+  font-size: size($size, fs) !important;
+  line-height: size($size, lh);
   font-style: none;
   margin: 0 !important;
   font-family: form(desc, fm);
   font-weight: form(desc, wt);
   text-transform: none; //TODO //TOCR
   letter-spacing: 0 !important;
-  padding-top: font($size, lh);
+  padding-top: size($size, lh);
 }
 
 
@@ -302,6 +317,14 @@
   @if $media == uxl {
     @media (max-width: em-bp($uxl - 1)) { @content; }
   }
+
+  //DIVI
+  @if $media == divi-lg {
+    @media (max-width: em-bp($divi-lg - 1)) { @content; }
+  }
+  @if $media == divi-uxxl {
+    @media (max-width: em-bp($divi-uxxl - 1)) { @content; }
+  }
 }
 
 @mixin breakpoint-min($media) {
@@ -325,106 +348,6 @@
   }
 }
 
-/*@mixin respond-to($media) {
-
-  @if $media == step-0 {
-    @media only screen and (max-width: em-bp($website-)width - 1px) { @content; }
-  }
-
-  @else if $media == step-1 {
-    @media only screen and (max-width: $s-desktop - 1px) { @content; }
-  }
-
-  @else if $media == step-2 {
-    @media only screen and (max-width: $l-tablet) { @content; }
-  }
-
-  @else if $media == step-3 {
-    @media only screen and (max-width: $p-tablet) { @content; }
-  }
-
-  @else if $media == min-step-3 {
-    @media only screen and (min-width: $p-tablet) { @content; }
-  }
-
-  @else if $media == step-4 {
-    @media only screen and (max-width: $l-phone) { @content; }
-  }
-
-  @else if $media == step-5 {
-    @media only screen and (max-width: $p-phone) { @content; }
-  }
-
-  @else if $media == step-p0 {
-    @media only screen and (min-width: $website-width ) { @content; }
-  }
-
-  @else if $media == step-p1 {
-    @media only screen and (min-width: $s-desktop) { @content; }
-  }
-
-  @else if $media == step-p2 {
-    @media only screen and (min-width: $u-hd) { @content; }
-  }
-
-
-  // DIVI Media queries
-  //@media all and (min-width: 1405px)
-  //@media all and (min-width: 1100px) and (max-width: 1405px)
-  //@media all and (min-width: 981px) and (max-width: 1405px)
-  //@media all and (min-width: 981px)
-  //@media all and (max-width: 980px)
-  //@media screen and (max-width: 782px)
-  //@media all and (max-width: 767px)
-  //@media all and (max-width: 768px)
-  //@media all and (max-width: 479px)
-  //@media all and (min-width: 480px)
-  @else if $media == divi-p2 {
-    @media all and (min-width: $divi-u-hd) { @content; }
-  }
-
-  @else if $media == divi-p1 {
-    @media all and (min-width: $divi-large-desktop) { @content; }
-  }
-
-  @else if $media == divi-p0 {
-    @media all and (min-width: $divi-small-desktop) and (max-width: $divi-large-desktop) { @content; }
-  }
-
-  @else if $media == divi-0 {
-    @media all and (min-width: $divi-l-tablet + 1px) and (max-width: $divi-large-desktop) { @content; }
-  }
-
-  @else if $media ==  divi-1 {
-    @media all and (min-width: $divi-l-tablet + 1px) { @content; }
-  }
-
-  @else if $media == divi-2 {
-    @media all and (max-width: $divi-l-tablet) { @content; }
-  }
-
-  @else if $media == divi-3 {
-    @media screen and (max-width: $divi-m-tablet) { @content; }
-  }
-
-  @else if $media == divi-4 {
-    @media all and (max-width: $p-tablet) { @content; }
-  }
-
-  @else if $media == divi-5 {
-    @media all and (max-width: $p-tablet + 1px) { @content; }
-  }
-
-  @else if $media == divi-6 {
-    @media all and (max-width: $p-phone) { @content; }
-  }
-
-  @else if $media == divi-7 {
-    @media all and (max-width: $p-phone + 1px) { @content; }
-  }
-}*/
-
-
 
 //****************************************************************************//
 //                            DECORAZIONI
@@ -441,6 +364,6 @@
   bottom: 0;
   left:0;
 //  background: palette($palette, overlay);
-  background-color: rgba( palette($palette, overlay), $grade);
+  background-color: rgba( main-colors($palette, overlay), $grade);
   z-index: 0;
 }

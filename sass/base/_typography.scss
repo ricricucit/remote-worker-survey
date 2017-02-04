@@ -6,12 +6,6 @@
 //****************************************************************************//
 
 
-//****************************************************************************//
-//                            Mixin per la tipgrafia
-//****************************************************************************//
-
-
-
 
 //****************************************************************************//
 //                            Base tipography
@@ -20,44 +14,60 @@
 body {
   font-size: $font-size;
   line-height: $line-height;
-  font-family: $serif;
+  font-family: $primary;
   text-rendering: optimizeLegibility;
   text-rendering: geometricPrecision;
 }
 
 h1 {
   @include font(h1);
-  color: palette(main, heading);
+  color: main-colors(body, heading);
 
   @include breakpoint-max(sm) {
     @include m-size(h1);
   }
 }
+
 h2 {
   @include font(h2);
-  color: palette(main, heading);
+  color: main-colors(body, heading);
 
   @include breakpoint-max(sm) {
     @include m-size(h2);
   }
 }
+
 h3 {
   @include font(h3);
-  color: palette(main, heading);
+  color: main-colors(body, heading);
 
   @include breakpoint-max(sm) {
     @include m-size(h3);
   }
 }
 
+.h3 {
+  @include font(h3);
+
+  @include breakpoint-max(sm) {
+    @include m-size(h3);
+  }
+
+  font-weight: inherit;
+}
+
+h4 {
+  @include font(h4);
+  color: main-colors(body, heading);
+}
+
 p {
   @include font(p);
-  color: palette(main, body);
+  color: main-colors(body, body);
+}
 
-  strong {
-    color: palette(main, heading);
-    line-height: 0;
-  }
+.accent {
+  color: main-colors(body, accent)
 }
 
 p, h1, h2, h3, h4, h5, ol, ul, blockquote {
@@ -73,34 +83,58 @@ p, h1, h2, h3, h4, h5, ol, ul, blockquote {
 ul, ol {
   @include size(p);
   @include margin(p);
+  color: main-colors(body, body);
 }
 
-blockquote {
 
-  width: 45%;
-  margin-right: 5%;
-  padding: $line-height 0 $line-height $line-height;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
-  position: relative;
+.section__title {
+  @include font(h2);
 
-  &::before {
-    content: "\201C";
-    font-size: 10em;
-    display: inline;
-    position: absolute;
-    top: 25%;
-    left: 0;
-    opacity: 0.2;
+  text-transform: uppercase;
+  text-align: center;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include breakpoint-max(sm) {
+    @include m-size(h2);
   }
 }
 
-.row {
- @include make-row();
- width: 100%;
+.section__title::before,
+.section__title::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  border-bottom: 1px dashed main-colors(body, border);
+  top: 1.25em;
+  //max-width: 550px;
+  width: 150%;
+
+  @include breakpoint-max(sm) {
+    top: 1.65em;
+  }
 }
 
-.column {
-  @include make-col-ready();
-  @include make-col(6);;
+.section__title::before {
+  right: 70%;
+  margin-right: 15px;
 }
+.section__title::after {
+  left: 70%;
+  margin-left: 15px;
+}
+
+
+///
+// LAYOUT EX
+///
+//.row {
+// @include make-row();
+// width: 100%;
+//}
+
+//.column {
+//  @include make-col-ready();
+//  @include make-col(6);;
+//}

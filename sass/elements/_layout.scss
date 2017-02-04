@@ -24,12 +24,16 @@ section {
   @include  make-row();
 
   padding: 0 $line-height;
+  z-index: 2;
+  position: relative;
 }
 .inner__row--center {
   @include make-row();
 
   padding: 0 $line-height;
   align-items: center;
+  z-index: 2;
+  position: relative;
 }
 
 .column--1-4 {

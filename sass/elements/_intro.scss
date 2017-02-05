@@ -206,10 +206,10 @@
 
   @include breakpoint-max(md) {
     position: absolute;
-    transform: rotate(51deg);
-    top: -16.5em;
-    width: -80px;
-    right: 1.25em;
+    transform: rotate(0);
+    top: -$line-height * 4;
+    width: 250%;
+    right: -$line-height * 6;
     text-align: center;
     padding-top: $line-height;
     padding-bottom: $line-height;

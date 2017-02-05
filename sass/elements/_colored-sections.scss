@@ -8,10 +8,12 @@
 
     * {
       color: palette($palette, body);
+      border-color: palette($palette, border);
     }
 
     h1, h2, h3, h4, h5, h6 {
       color: palette($palette, heading);
+      border-color: palette($palette, border);
     }
 
     li {

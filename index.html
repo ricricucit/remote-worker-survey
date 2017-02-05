@@ -96,21 +96,27 @@
           </div>
         </div>
       </section>
-      <section id="survey">
+      <section class="purple survey" id="survey">
         <div class="inner">
           <div class="inner__row">
             <div class="column--1-1">
               <h2 class="section__title">Keep in Touch</h2>
+              <h3 class="survey__not-ready-text">We are preparing the survey right now!</h3>
+              <h3 class="survey__not-ready-text">Subscribe below and we'll let you know once it's ready :-)</h3>
             </div>
           </div>
           <div class="inner__row">
             <div class="column--1-1">
                 <form class="subscribe-form">
-        	        <label for="email">Email Address</label>
-        	        <input type="email" value="" name="email" class="subscribe-form__email" id="email">
-                	<label for="name">First Name </label>
-                	<input type="text" value="" name="name" class="subscribe-form__name" id="name">
-                  <input type="submit" class="subscribe-form__button">
+                  <div class="subscribe-form__field-container">
+          	      <!--  <label class="subscribe-form__email-label" for="email">Email Address</label> -->
+          	        <input type="email" value="" name="email" class="subscribe-form__email" id="email" placeholder="Email Address">
+                  </div>
+                  <div class="subscribe-form__field-container">
+                  <!--	<label for="name">First Name </label> -->
+                  	<input type="text" value="" name="name" class="subscribe-form__name" id="name" placeholder="First name">
+                  </div>
+                    <input type="submit" class="subscribe-form__button" value="Keep Me Posted">
             </div>
           </div>
         </div>

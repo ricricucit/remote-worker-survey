@@ -116,6 +116,15 @@ ul, ol {
   }
 }
 
+@each $palette, $sections in $colors {
+  .#{$palette} {
+    .section__title::before,
+    .section__title::after {
+      border-color: palette($palette, border);
+    }
+  }
+}
+
 .section__title::before {
   right: 70%;
   margin-right: 15px;

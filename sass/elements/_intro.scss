@@ -74,6 +74,16 @@
   }
 }
 
+.svg-container{
+  position:absolute;
+  width: 100%;
+  left: 0;
+  top: -1px;
+  @include breakpoint-min(md) {
+    display: none;
+  }
+}
+
 .title--remote,
 .title--worker,
 .title--survey {
@@ -123,24 +133,7 @@
 
   @include breakpoint-max(md) {
       width: 0;
-      content: "";
-      max-width: 100%;
-      top: -1px;
-      left: 0;
-      right: 0;
-      border-radius: 0;
-      border-bottom: 0;
-      border-left: 49vw solid transparent;
-      border-right: 49vw solid transparent;
-      border-top: 60vw solid palette(red, bg);
-      position: absolute;
-      z-index: -3;
-  }
-
-  @include breakpoint-max(xs) {
-    border-left: 49vw solid transparent;
-    border-right: 49vw solid transparent;
-    border-top: 70vw solid palette(red, bg);
+      content: none;
   }
 }
 

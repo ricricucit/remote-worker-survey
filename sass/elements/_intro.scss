@@ -22,10 +22,16 @@
   @include font(h3, $wt: normal);
 
   position: relative;
-  z-index: 99999;
+  z-index: 1;
 
   @include breakpoint-max(md) {
     color: palette(red, body);
+    padding-bottom: size(h3, lh);
+  }
+
+  @include breakpoint-max(sm) {
+    @include m-size(h3);
+    font-weight: family(secondary, thin);
   }
 }
 
@@ -36,7 +42,9 @@
   padding: $height 0;
 
   @include breakpoint-max(md) {
-    background-color: palette(red, bg);
+    background-color: transparent;
+    padding-top: 0;
+
 
     .column--1-2,
     .column--1-4 {
@@ -56,8 +64,9 @@
   z-index: 0;
   position: relative;
   line-height: size(h1, lh) * 1.5;
+
   @include breakpoint-max(md) {
-    line-height: m-size(h1, lh);
+    line-height: 1;
   }
 
   strong {
@@ -74,6 +83,10 @@
 .title--remote {
   font-weight: 700;
   letter-spacing: 6px;
+
+  @include breakpoint-max(sm) {
+    letter-spacing: 4px;
+  }
 }
 
 .title--worker {
@@ -81,7 +94,12 @@
 }
 
 .title--survey {
-  letter-spacing: 10px;
+  letter-spacing: 9px;
+
+  @include breakpoint-max(sm) {
+    letter-spacing: 5px;
+  }
+
 }
 
 .title::before {
@@ -104,7 +122,25 @@
   right: -143%;
 
   @include breakpoint-max(md) {
-    content: none;
+      width: 0;
+      content: "";
+      max-width: 100%;
+      top: -1px;
+      left: 0;
+      right: 0;
+      border-radius: 0;
+      border-bottom: 0;
+      border-left: 49vw solid transparent;
+      border-right: 49vw solid transparent;
+      border-top: 60vw solid palette(red, bg);
+      position: absolute;
+      z-index: -3;
+  }
+
+  @include breakpoint-max(xs) {
+    border-left: 49vw solid transparent;
+    border-right: 49vw solid transparent;
+    border-top: 70vw solid palette(red, bg);
   }
 }
 
@@ -135,6 +171,10 @@
   padding-top: $height;
   padding-bottom: $height;
 
+  @include breakpoint-max(md)  {
+    margin-top: $line-height * 3;
+  }
+
   @include breakpoint-max(sm) {
     flex-flow: column-reverse;
     padding-bottom: 0;
@@ -152,11 +192,12 @@
   position: absolute;
 //  z-index: 222;
   text-transform: uppercase;
-  width: 220%;
+  width: 250%;
   transform: rotate(37.8deg);
-  top: -130px;
-  right: -20px;
+  top: -80px;
+  right: -120px;
   font-family: $secondary;
+  letter-spacing: 1px;
 
   @include breakpoint-max(lg) {
     top: 30%;
@@ -165,11 +206,13 @@
 
   @include breakpoint-max(md) {
     position: absolute;
-    transform: rotate(0);
-    top: -$line-height * 4;
-    width: 250%;
-    right: -$line-height * 6;
+    transform: rotate(51deg);
+    top: -16.5em;
+    width: -80px;
+    right: 1.25em;
     text-align: center;
+    padding-top: $line-height;
+    padding-bottom: $line-height;
   }
 
   @include breakpoint-max(sm) {
@@ -177,7 +220,8 @@
     top: auto;
     right: auto;
     width: auto;
-    padding-bottom: $line-height;
+    padding-top: 0;
+    padding-bottom: $line-height * 2;
   }
 }
 

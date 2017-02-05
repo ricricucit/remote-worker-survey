@@ -31,6 +31,10 @@
       border-color: palette(purple, border);
       outline: none;
     }
+
+    @include breakpoint-max(sm) {
+      @include m-size(h3);
+    }
   }
   input:placeholder-shown::placeholder {
     color: palette(purple, body);

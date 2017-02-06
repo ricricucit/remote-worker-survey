@@ -220,8 +220,8 @@
   .ctas__survey {
     text-align: center;
     position: fixed;
-    bottom: $line-height;
-    right: $line-height * 8;
+    bottom: 5vw;
+    right: 5vw;
     height: $line-height * 5;
     width: $line-height * 5;
     box-shadow: $button-shadow-rounded;
@@ -237,10 +237,18 @@
     &--small {
       display: block;
       padding-top: $line-height * 1.25;
+
+      @include breakpoint-max(sm) {
+        line-height: 1;
+      }
     }
 
     &--big {
       @include font(h3, $mt: 0, $wt: bold);
+
+      @include breakpoint-max(sm) {
+        @include m-size(h3);
+      }
     }
 
     @include breakpoint-max(sm) {
@@ -248,9 +256,7 @@
       margin: 0 auto;
       margin-bottom: 0;
       position: fixed;
-      top: 85%;
-      right: 5%;
-      z-index: 9999999;
+        z-index: 9999999;
       font-size: 0.5em;
 
     }

@@ -1,1 +1,39 @@
+.why__section {
+  margin-top: ($line-height * 5);
+  position: relative;
 
+  .why__section-inner {
+    max-width: $website-width;
+    margin: 0 auto;
+
+    @include breakpoint-max(lg) {
+      padding: 0 $line-height;
+    }
+
+    .why__section-title {
+      @include section-title();
+      text-transform: uppercase;
+      text-align: center;
+
+      &::before,
+      &::after {
+        border-color: main-colors(body, border);
+      }
+    }
+
+    .why__text-container {
+      @include make-row;
+
+      .why__text-col {
+        @include make-col-ready();
+        @include make-col(6);
+
+        box-sizing: border-box;
+
+        @include breakpoint-max(md) {
+          @include make-col(12);
+        }
+      }
+    }
+  }
+}

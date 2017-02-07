@@ -8,6 +8,7 @@
   .survey__section-inner {
   	max-width: $website-width;
     margin: 0 auto;
+		position: relative;
 
     @include breakpoint-max(lg) {
       padding: 0 $line-height;

@@ -127,12 +127,12 @@
     position: absolute;
     height: 1px;
     border-bottom: 1px dashed;
-    top: 1.25em;
+    top: size(h2, lh) / 2;
     //max-width: 550px;
-    width: 150%;
+    width: 250%;
 
     @include breakpoint-max(sm) {
-      top: 1.65em;
+      top: m-size(h2, lh) / 2;
     }
   }
 

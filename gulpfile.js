@@ -1,4 +1,4 @@
-var config      = require('./config.json');
+//var config      = require('./config.json');
 
 var gulp        = require('gulp');
 var browserSync = require('browser-sync');

@@ -283,7 +283,7 @@
 
     @include breakpoint-max(md) {
         right: 2vw;
-        font-size: 0.5em;
+
     }
 
     @include breakpoint-max(sm) {
@@ -292,13 +292,14 @@
       margin-bottom: 0;
       position: fixed;
       z-index: 4;
+              font-size: 0.5em;
     }
 
     &--small {
       display: block;
       padding-top: $line-height * 1.25;
 
-      @include breakpoint-max(md) {
+      @include breakpoint-max(sm) {
         line-height: 1;
       }
     }

@@ -101,21 +101,6 @@ ul, ol {
   }
 }
 
-.section__title::before,
-.section__title::after {
-  content: "";
-  position: absolute;
-  height: 1px;
-  border-bottom: 1px dashed main-colors(body, border);
-  top: 1.25em;
-  //max-width: 550px;
-  width: 150%;
-
-  @include breakpoint-max(sm) {
-    top: 1.65em;
-  }
-}
-
 @each $palette, $sections in $colors {
   .#{$palette} {
     .section__title::before,
@@ -125,14 +110,7 @@ ul, ol {
   }
 }
 
-.section__title::before {
-  right: 70%;
-  margin-right: 15px;
-}
-.section__title::after {
-  left: 70%;
-  margin-left: 15px;
-}
+
 
 
 ///

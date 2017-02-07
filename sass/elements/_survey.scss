@@ -1,6 +1,96 @@
-.survey {
-  padding: $line-height * 3 0;
-}
-.survey__not-ready-text {
-  text-align: center;
+.survey__section {
+	background: palette(purple, bg);
+	padding: $line-height * 3 0;
+	margin-top: ($line-height * 5);
+	position: relative;
+	z-index: 5;
+
+  .survey__section-inner {
+  	max-width: $website-width;
+    margin: 0 auto;
+
+    @include breakpoint-max(lg) {
+      padding: 0 $line-height;
+    }
+
+		.survey__section-title{
+			@include section-title();
+	    text-transform: uppercase;
+	    text-align: center;
+	    color: palette(purple, light);
+
+	    &::before,
+	    &::after {
+	      border-color: palette(purple, light);
+	    }
+		}
+
+		.survey__not-ready-text {
+		  text-align: center;
+		  color: palette(purple, light);
+		}
+
+
+		.subscribe-form {
+		  padding: 0;
+		  max-width: 470px;
+		  margin: 0 auto;
+
+		  .subscribe-form__field-container {
+		    display: flex;
+		    flex-direction: row;
+		    margin-bottom: $line-height;
+		  }
+
+		  .subscribe-form__name,
+		  .subscribe-form__email {
+		    @include font(h3);
+		    width: 100%;
+
+		    padding: (size(h3, lh) / 2) 0;
+		    color: palette(purple, body);
+		    background: transparent;
+		    border: 0;
+		    border-bottom: 2px solid;
+		    border-bottom-color: darken(palette(purple, border), 10%);
+		    &:focus {
+		      border-color: palette(purple, border);
+		      outline: none;
+		    }
+
+		    @include breakpoint-max(sm) {
+		      @include m-size(h3);
+		    }
+
+		    &:placeholder-shown::placeholder {
+			    color: rgba(255,255,255,.7);
+			    opacity: 0.9;
+			    font-style: italic;
+			  }
+		  }
+
+		  .subscribe-form__button {
+		    @extend %button;
+
+		    @include button(h3, 4);
+
+		    border: 4px solid transparent;
+		    background: palette(red, bg);
+		    border-bottom-color: darken(palette(red, bg), 5%);
+		    width: 100%;
+		    text-transform: uppercase;
+		    opacity: 0.9;
+				color: palette(purple, light);
+				transition: opacity .2s ease-in-out, background .2s ease-in-out;
+
+		    &:hover {
+		      background: darken(palette(red, bg), 5%);
+		      opacity: 1;
+		    }
+		  }
+
+		}
+
+  }
+
 }

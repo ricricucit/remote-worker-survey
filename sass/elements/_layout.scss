@@ -1,14 +1,6 @@
-.site__wrapper {
+.wrapper {
   overflow: hidden;
   background: palette(red, light);
-}
-
-.site__container {
-  padding: $height-small 0 0 0;
-
-  @include breakpoint-max(md) {
-    padding-top: 0;
-  }
 }
 
 section {

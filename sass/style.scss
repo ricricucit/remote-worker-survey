@@ -15,11 +15,10 @@
 @import 'helpers/mixins';
 
 @import 'base/typography';
-@import 'base/resets';
+@import 'base/normalize';
 
 @import 'elements/colored-sections.scss';
 @import 'elements/layout.scss';
 @import 'elements/intro';
 @import 'elements/why';
 @import 'elements/survey';
-@import 'elements/subscribe-form';

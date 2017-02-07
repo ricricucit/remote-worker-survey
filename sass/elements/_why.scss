@@ -1,10 +1,12 @@
 .why__section {
-  margin-top: ($line-height * 5);
-  position: relative;
+  margin-top: ($line-height * 2);
+	padding: $line-height * 3 0;
+
 
   .why__section-inner {
     max-width: $website-width;
     margin: 0 auto;
+    position: relative;
 
     @include breakpoint-max(lg) {
       padding: 0 $line-height;

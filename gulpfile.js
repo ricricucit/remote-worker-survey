@@ -1,5 +1,4 @@
 //var config      = require('./config.json');
-
 var gulp        = require('gulp');
 var browserSync = require('browser-sync');
 var reload      = browserSync.reload;
@@ -9,6 +8,10 @@ var sourceMaps  = require('gulp-sourcemaps');
 var rename      = require('gulp-rename');
 var postcss      = require('gulp-postcss');
 var autoprefixer      = require('autoprefixer');
+
+var jshint      = require('gulp-jshint');
+const stylish   = require('jshint-stylish');
+var uglify      = require('gulp-uglify');
 
 
 
@@ -36,7 +39,7 @@ gulp.task('browser-sync', function() {
 // Sass task, will run when any SCSS files change & BrowserSync
 // will auto-update browsers
 gulp.task('sass', function () {
-    return gulp.src('sass/*.scss')
+    return gulp.src('src/sass/*.scss')
         .pipe(sass({precision: '20'})) //compila sass
         .pipe(postcss([ autoprefixer({ browsers: ['last 7 versions'] }) ])) // aggiunge css di autoprefixer
         .pipe(rename('unmin-style.css')) //rinomina il file
@@ -50,9 +53,25 @@ gulp.task('sass', function () {
 
 });
 
+gulp.task('js', function () {
+    return gulp.src('src/js/**/*.js')
+    .pipe(sourceMaps.init())
+    .pipe(jshint())
+    .pipe(jshint.reporter(stylish))
+    .pipe(sourceMaps.write())
+    .pipe(uglify())
+    .pipe(gulp.dest('./'))
+    .pipe(reload({stream:true}));
+});
+
 // Default task to be run with `gulp`
-gulp.task('default', ['sass', 'browser-sync'], function () {
-    gulp.watch("sass/**/*.scss", ['sass']);
-//    gulp.watch("**/*.scss", ['sass']);
-//    gulp.watch("**/*.php", ['sass']);
+gulp.task('default', ['sass', 'js', 'browser-sync'], function () {
+    gulp.watch("src/sass/**/*.scss", ['sass']);
+    gulp.watch("src/js/**/*.js", ['js']);
+});
+
+// Default task to be run with `gulp`
+gulp.task('build', ['sass', 'js'], function () {
+    gulp.watch("src/sass/**/*.scss", ['sass']);
+    gulp.watch("src/js/**/*.js", ['js']);
 });

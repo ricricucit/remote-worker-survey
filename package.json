@@ -7,12 +7,8 @@
     "node": "7.0.0",
     "npm": "4.0.3"
   },
-  "start": "node server.js",
-  "install": "gulp",
   "dependencies": {
-    "express": "^4.14.0"
-  },
-  "devDependencies": {
+    "express": "^4.14.0",
     "autoprefixer": "^6.5.3",
     "bootstrap": "^4.0.0-alpha.5",
     "browser-sync": "^2.17.6",
@@ -25,7 +21,9 @@
     "gulp-sourcemaps": "^2.2.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "postinstall": "gulp sass"
   },
   "repository": {
       "type": "git",

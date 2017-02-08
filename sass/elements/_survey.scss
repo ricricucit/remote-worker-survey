@@ -31,7 +31,7 @@
 		  color: palette(purple, light);
 		  padding: 0 25%;
 
-		  @include breakpoint-max(sm) {
+		  @include breakpoint-max(md) {
 				padding: 0;
 	    }
 			@include breakpoint-min(lg) {
@@ -44,6 +44,7 @@
 		  padding: 0;
 		  max-width: 470px;
 		  margin: 0 auto;
+		  padding: ($line-height * 4) 0;
 
 		  .subscribe-form__field-container {
 		    display: flex;

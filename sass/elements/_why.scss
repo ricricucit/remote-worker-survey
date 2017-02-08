@@ -30,6 +30,7 @@
 
     .why__text-container {
       @include make-row;
+      padding: ($line-height * 4) 0;
 
       .why__text-col {
         @include make-col-ready();

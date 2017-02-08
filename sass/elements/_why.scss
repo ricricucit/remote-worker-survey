@@ -1,7 +1,11 @@
 .why__section {
-  margin-top: ($line-height * 2);
-	padding: $line-height * 3 0;
+  margin-top: ($line-height * 5);
+	padding: ($line-height * 2) 0;
 
+  @include breakpoint-max(md) {
+    margin-top: 0;
+    padding-top: $line-height;
+  }
 
   .why__section-inner {
     max-width: $website-width;
@@ -16,6 +20,7 @@
       @include section-title();
       text-transform: uppercase;
       text-align: center;
+      padding-bottom: size(h2, lh);
 
       &::before,
       &::after {

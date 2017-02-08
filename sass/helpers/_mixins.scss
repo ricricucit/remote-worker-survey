@@ -137,12 +137,12 @@
   }
 
   &::before {
-    right: 70%;
+    right: 80%;
     margin-right: 15px;
   }
 
   &::after {
-    left: 70%;
+    left: 80%;
     margin-left: 15px;
   }
 }
@@ -163,6 +163,7 @@
   white-space: normal;
   border-style: solid;
   box-shadow: $button-shadow;
+  cursor: pointer;
 }
 
 ///

@@ -1,5 +1,5 @@
 .why__section {
-  margin-top: ($line-height * 5);
+  margin-top: ($line-height * 10);
 	padding: ($line-height * 2) 0;
 
   @include breakpoint-max(md) {
@@ -30,15 +30,20 @@
 
     .why__text-container {
       @include make-row;
+      padding: ($line-height * 4) 0;
 
       .why__text-col {
         @include make-col-ready();
         @include make-col(6);
+        text-align: justify;
 
         box-sizing: border-box;
 
         @include breakpoint-max(md) {
           @include make-col(12);
+          &:nth-child(2){
+            padding-top: $line-height;
+          }
         }
       }
     }

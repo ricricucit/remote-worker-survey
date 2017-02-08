@@ -1,7 +1,7 @@
 .survey__section {
 	background: palette(purple, bg);
 	padding: $line-height * 3 0;
-	margin-top: ($line-height * 5);
+	margin-top: ($line-height);
 	position: relative;
 	z-index: 5;
 
@@ -29,6 +29,14 @@
 		.survey__not-ready-text {
 		  text-align: center;
 		  color: palette(purple, light);
+		  padding: 0 25%;
+
+		  @include breakpoint-max(sm) {
+				padding: 0;
+	    }
+			@include breakpoint-min(lg) {
+				//padding: 0 10%;
+	    }
 		}
 
 
